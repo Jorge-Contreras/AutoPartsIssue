@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GeneralTablesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="GeneralTablesModelStoreContainer">
+          <EntitySet Name="TranDetail" EntityType="GeneralTablesModel.Store.TranDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Manual_Entry_Transactions" EntityType="GeneralTablesModel.Store.Manual_Entry_Transactions" store:Type="Views" store:Schema="dbo" store:Name="Manual_Entry_Transactions">
+            <DefiningQuery>SELECT 
+      [Manual_Entry_Transactions].[Date] AS [Date], 
+      [Manual_Entry_Transactions].[Qty] AS [Qty], 
+      [Manual_Entry_Transactions].[PartNumber] AS [PartNumber], 
+      [Manual_Entry_Transactions].[CoronaPartID] AS [CoronaPartID], 
+      [Manual_Entry_Transactions].[Description] AS [Description], 
+      [Manual_Entry_Transactions].[EmpID] AS [EmpID], 
+      [Manual_Entry_Transactions].[LastName] AS [LastName], 
+      [Manual_Entry_Transactions].[Name] AS [Name], 
+      [Manual_Entry_Transactions].[Department] AS [Department], 
+      [Manual_Entry_Transactions].[MasonUpdated] AS [MasonUpdated], 
+      [Manual_Entry_Transactions].[TranID] AS [TranID], 
+      [Manual_Entry_Transactions].[TranDetailID] AS [TranDetailID], 
+      [Manual_Entry_Transactions].[Comment] AS [Comment]
+      FROM [dbo].[Manual_Entry_Transactions] AS [Manual_Entry_Transactions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Transactions_Not_Entered" EntityType="GeneralTablesModel.Store.Transactions_Not_Entered" store:Type="Views" store:Schema="dbo" store:Name="Transactions_Not_Entered">
+            <DefiningQuery>SELECT 
+      [Transactions_Not_Entered].[Date] AS [Date], 
+      [Transactions_Not_Entered].[Qty] AS [Qty], 
+      [Transactions_Not_Entered].[PartNumber] AS [PartNumber], 
+      [Transactions_Not_Entered].[CoronaPartID] AS [CoronaPartID], 
+      [Transactions_Not_Entered].[Description] AS [Description], 
+      [Transactions_Not_Entered].[EmpID] AS [EmpID], 
+      [Transactions_Not_Entered].[LastName] AS [LastName], 
+      [Transactions_Not_Entered].[Name] AS [Name], 
+      [Transactions_Not_Entered].[Department] AS [Department], 
+      [Transactions_Not_Entered].[MasonUpdated] AS [MasonUpdated], 
+      [Transactions_Not_Entered].[TranID] AS [TranID], 
+      [Transactions_Not_Entered].[TranDetailID] AS [TranDetailID], 
+      [Transactions_Not_Entered].[Comment] AS [Comment]
+      FROM [dbo].[Transactions_Not_Entered] AS [Transactions_Not_Entered]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="TranDetail">
+          <Key>
+            <PropertyRef Name="TranDetailID" />
+          </Key>
+          <Property Name="TranID" Type="int" />
+          <Property Name="PartID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Qty" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="MasonUpdated" Type="bit" />
+          <Property Name="TranDetailID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'GeneralTables.dbo.Manual_Entry_Transactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Manual_Entry_Transactions">
+          <Key>
+            <PropertyRef Name="TranID" />
+            <PropertyRef Name="TranDetailID" />
+          </Key>
+          <Property Name="Date" Type="varchar" MaxLength="30" />
+          <Property Name="Qty" Type="nvarchar" MaxLength="255" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="CoronaPartID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmpID" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Department" Type="nvarchar" MaxLength="255" />
+          <Property Name="MasonUpdated" Type="bit" />
+          <Property Name="TranID" Type="int" Nullable="false" />
+          <Property Name="TranDetailID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'GeneralTables.dbo.Transactions_Not_Entered' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Transactions_Not_Entered">
+          <Key>
+            <PropertyRef Name="TranID" />
+            <PropertyRef Name="TranDetailID" />
+          </Key>
+          <Property Name="Date" Type="varchar" MaxLength="30" />
+          <Property Name="Qty" Type="nvarchar" MaxLength="255" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="CoronaPartID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="EmpID" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Department" Type="nvarchar" MaxLength="255" />
+          <Property Name="MasonUpdated" Type="bit" />
+          <Property Name="TranID" Type="int" Nullable="false" />
+          <Property Name="TranDetailID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GeneralTablesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GeneralTablesEntities" p1:LazyLoadingEnabled="true" >
+          <EntitySet Name="TranDetails" EntityType="GeneralTablesModel.TranDetail" />
+          <EntitySet Name="Transactions_Not_Entered" EntityType="GeneralTablesModel.Transactions_Not_Entered" />
+          <EntitySet Name="Manual_Entry_Transactions" EntityType="GeneralTablesModel.Manual_Entry_Transactions" />
+        </EntityContainer>
+        <EntityType Name="TranDetail">
+          <Key>
+            <PropertyRef Name="TranDetailID" />
+          </Key>
+          <Property Type="Int32" Name="TranID" />
+          <Property Type="String" Name="PartID" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Qty" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="MasonUpdated" />
+          <Property Type="Guid" Name="TranDetailID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transactions_Not_Entered">
+          <Key>
+            <PropertyRef Name="TranID" />
+            <PropertyRef Name="TranDetailID" />
+          </Key>
+          <Property Type="String" Name="Date" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Qty" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PartNumber" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CoronaPartID" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpID" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Department" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="MasonUpdated" />
+          <Property Type="Int32" Name="TranID" Nullable="false" />
+          <Property Type="Guid" Name="TranDetailID" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Manual_Entry_Transactions">
+          <Key>
+            <PropertyRef Name="TranID" />
+            <PropertyRef Name="TranDetailID" />
+          </Key>
+          <Property Type="String" Name="Date" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Qty" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PartNumber" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CoronaPartID" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpID" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Department" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="MasonUpdated" />
+          <Property Type="Int32" Name="TranID" Nullable="false" />
+          <Property Type="Guid" Name="TranDetailID" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GeneralTablesModelStoreContainer" CdmEntityContainer="GeneralTablesEntities" >
+          <EntitySetMapping Name="TranDetails">
+            <EntityTypeMapping TypeName="GeneralTablesModel.TranDetail">
+              <MappingFragment StoreEntitySet="TranDetail">
+                <ScalarProperty Name="TranDetailID" ColumnName="TranDetailID" />
+                <ScalarProperty Name="MasonUpdated" ColumnName="MasonUpdated" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="PartID" ColumnName="PartID" />
+                <ScalarProperty Name="TranID" ColumnName="TranID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions_Not_Entered">
+            <EntityTypeMapping TypeName="GeneralTablesModel.Transactions_Not_Entered">
+              <MappingFragment StoreEntitySet="Transactions_Not_Entered">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TranDetailID" ColumnName="TranDetailID" />
+                <ScalarProperty Name="TranID" ColumnName="TranID" />
+                <ScalarProperty Name="MasonUpdated" ColumnName="MasonUpdated" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CoronaPartID" ColumnName="CoronaPartID" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manual_Entry_Transactions">
+            <EntityTypeMapping TypeName="GeneralTablesModel.Manual_Entry_Transactions">
+              <MappingFragment StoreEntitySet="Manual_Entry_Transactions">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TranDetailID" ColumnName="TranDetailID" />
+                <ScalarProperty Name="TranID" ColumnName="TranID" />
+                <ScalarProperty Name="MasonUpdated" ColumnName="MasonUpdated" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CoronaPartID" ColumnName="CoronaPartID" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

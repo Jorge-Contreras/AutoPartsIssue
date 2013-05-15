@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b4011f3f53742b1b383ab0661b60768" Name="Diagram1" >
+        <EntityTypeShape EntityType="GeneralTablesModel.TranDetail" Width="1.5" PointX="9.25" PointY="2" />
+        <EntityTypeShape EntityType="GeneralTablesModel.Transactions_Not_Entered" Width="2.5" PointX="4.75" PointY="1.25" />
+        <EntityTypeShape EntityType="GeneralTablesModel.Manual_Entry_Transactions" Width="1.5" PointX="10.10138370194537" PointY="27.199416039138761" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
